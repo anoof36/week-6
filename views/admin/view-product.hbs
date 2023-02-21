@@ -1,0 +1,50 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <a href="admin/add-product" class="btn btn-success mt-5 mb-3" style="width: 200px;">Add product</a>
+        </div>
+        <table id="example" class="table table-striped mt-5" style="width:100%">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">{{@index}}</th>
+                    <td>{{this.Name}}</td>
+                    <td>{{this.Category}}</td>
+                    <td>{{this.Price}}</td>
+                    <td><img src="/product-images/{{this._id}}.jpg" style="width: 3rem; height: 3rem;" alt=""></td>
+                    <td>
+                        <a href="/admin/edit-product/?id={{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/delete-product/?id={{this._id}}" ><button type="button" onclick="return show_confirm()"
+                                class="btn btn-danger">delete</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+
+    function show_confirm() {
+        if (confirm("Confirm message")) {
+
+        } else {
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>

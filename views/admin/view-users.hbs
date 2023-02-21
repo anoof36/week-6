@@ -1,0 +1,47 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <a href="add-userData" class="btn btn-success mt-5 mb-3 " style="width: 200px;">Add user</a>
+        </div>
+        <table class="table mt-5 table-striped" id="disable">
+            <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each users}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>
+                        <a href="/admin/edit-user/?id={{this._id}}" class="btn btn-primary">Edit</a>
+                        <a href="/admin/delete-user/?id={{this._id}}"><button type="button" onclick="return show_confirm()"
+                                class="btn btn-danger">delete</button></a>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<script>
+
+    function show_confirm() {
+        if (confirm("Confirm message")) {
+            
+        } else {
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        $('#disable').DataTable();
+    });
+</script>

@@ -1,0 +1,30 @@
+<section style="background: rgb(41, 41, 41); height: 780px;">
+    <div class="container " style="padding-top: 140px;">
+        
+        <div class="row col-lg-6 mx-auto mt-5 pt-5" style="background: rgb(83, 255, 169);">
+            <h2>Admin login</h2>
+            <form action="/admin/admin-login" method="post" enctype="multipart/form-data">
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="email" name="email" id="form3Example3" class="form-control" />
+                    <label class="form-label" for="form3Example3">Email address</label>
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-4">
+                    <input type="password" name="password" id="form3Example4" class="form-control" />
+                    <label class="form-label" for="form3Example4">Password</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                    <p class="text-danger">{{errM}}</p>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">
+                    Log in
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
